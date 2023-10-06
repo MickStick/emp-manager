@@ -1,5 +1,6 @@
 const Employee = require("../models/employee")
 const EmployeeReview = require("../models/employeereviews")
+const EmployeeAgreement = require("../models/employeeagreement")
 
 module.exports = class EmployeeService {
 
@@ -121,6 +122,7 @@ module.exports = class EmployeeService {
     /**
      * This is a method that, using the sequelize EmployeeReview model, should get a list of
      * employee review objects/records determined by the employee id. 
+     * @param {Number} empid 
      * @returns {EmployeeReview} Response Object
      */
     async retreiveEmployeeReviewList(empid) {
@@ -144,12 +146,92 @@ module.exports = class EmployeeService {
      * @param {Object} body 
      * @returns {EmployeeReview} Response Object
      */
-    async updateEmployeeReview(body) {
+    async updateEmployeeReview(revid, body) {
         const resData = await EmployeeReview.update(
             body,
            { 
             where: {
                 id: revid
+            }
+           }
+        )
+
+        if(resData == null || resData == "undefined"){
+            return //Error Handling
+        }
+
+        return resData;
+    }
+
+     /**
+     * This is a method that, using the sequelize Department model, should create and add
+     * to the database, a new employee agreement object/record. 
+     * @param {Object} body 
+     * @returns {EmployeeAgreement} Response Object
+     */
+     async addEmployeeAgreement(body) {
+        const resData = await EmployeeAgreement.create(body)
+
+        if (resData == null || resData == "undefined") {
+            return //Error Handling
+        }
+
+        return resData;
+    }
+
+    /**
+     * This is a method that, using the sequelize EmployeeAgreement model, should get a specified
+     * employee agreement object/record determined by the employee id. 
+     * @param {Number} empid 
+     * @returns {EmployeeAgreement} Response Object
+     */
+    async retreiveEmployeeAgreement(empid) {
+        const resData = await EmployeeAgreement.findAll({
+            where: {
+                empid: empid
+            }
+        })
+
+        if (resData == null || resData == "undefined") {
+            return //Error Handling
+        }
+
+        return resData[0];
+    }
+
+    /**
+     * This is a method that, using the sequelize EmployeeAgreement model, should get a list of
+     * employee agreement objects/records determined by the employee id. 
+     * @param {Number} empid
+     * @returns {EmployeeAgreement} Response Object
+     */
+    async retreiveEmployeeAgreementList(empid) {
+        const resData = await EmployeeAgreement.findAll({
+            where: {
+                empid: empid
+            }
+        })
+
+        if(resData == null || resData == "undefined"){
+            return //Error Handling
+        }
+
+        return resData;
+    }
+
+     /**.
+     * This is a method that, using the sequelize EmployeeAgreement model, should update a
+     * specific employee agreement object/record determined by the employee agreement id
+     * @param {Number} empagid 
+     * @param {Object} body 
+     * @returns {EmployeeAgreement} Response Object
+     */
+    async updateEmployeeAgreement(empagid, body) {
+        const resData = await EmployeeAgreement.update(
+            body,
+           { 
+            where: {
+                id: empagid
             }
            }
         )
