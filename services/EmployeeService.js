@@ -25,7 +25,7 @@ module.exports = class EmployeeService {
 
     /**
      * This is a method that, using the sequelize Employee model, should get a specified
-     * employee object determined by the employee code.
+     * employee object determined by the employee id.
      * @param {Number} depcode 
      * @returns {Employee} Response Object
      */
@@ -45,7 +45,7 @@ module.exports = class EmployeeService {
 
     /**
      * This is a method that, using the sequelize Employee model, should get a list of
-     * employee objects/records determined by the employee code.
+     * employee objects/records determined by the employee id.
      * @returns {Employee} Response Object
      */
     async retreiveEmployeeList() {
@@ -60,7 +60,7 @@ module.exports = class EmployeeService {
 
     /**
      * This is a method that, using the sequelize Employee model, should update a
-     * specific employee object/record determined by the employee code.
+     * specific employee object/record determined by the employee id.
      * @param {Number} depcode 
      * @param {Object} body 
      * @returns {Employee} Response Object
