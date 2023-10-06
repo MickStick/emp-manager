@@ -179,7 +179,7 @@ module.exports = class DepartmentService {
             body,
            { 
             where: {
-                _id: revid
+                id: revid
             }
            }
         )
