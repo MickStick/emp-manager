@@ -26,7 +26,7 @@ module.exports = class EmployeeService {
     /**
      * This is a method that, using the sequelize Employee model, should get a specified
      * employee object determined by the employee id.
-     * @param {Number} depcode 
+     * @param {Number} empid 
      * @returns {Employee} Response Object
      */
     async retreiveEmployeeData(empid) {
@@ -61,16 +61,16 @@ module.exports = class EmployeeService {
     /**
      * This is a method that, using the sequelize Employee model, should update a
      * specific employee object/record determined by the employee id.
-     * @param {Number} depcode 
+     * @param {Number} empid 
      * @param {Object} body 
      * @returns {Employee} Response Object
      */
-    async updateEmployeeData(body) {
+    async updateEmployeeData(empid, body) {
         const resData = await Employee.update(
             body,
             {
                 where: {
-                    depcode: depcode
+                    employid: empid
                 }
             }
         )
@@ -101,7 +101,7 @@ module.exports = class EmployeeService {
     /**
      * This is a method that, using the sequelize EmployeeReview model, should get a specified
      * employee review object/record determined by the employee id. 
-     * @param {Number} depcode 
+     * @param {Number} empid 
      * @returns {EmployeeReview} Response Object
      */
     async retreiveEmployeeReview(empid) {
