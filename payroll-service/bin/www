@@ -1,14 +1,12 @@
 #!/usr/bin/env node
-require('dotenv').config();
+
 /**
  * Module dependencies.
  */
 
 var app = require('../app');
-var debug = require('debug')('emp-manager:server');
+var debug = require('debug')('payroll-service:server');
 var http = require('http');
-var database = require('../config/database');
-var Log = require('../utility/Log')
 
 /**
  * Get port from environment and store in Express.
@@ -89,9 +87,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  database.authenticate().then(() => {
-    Log.success('Connection has been established successfully.');
-  }).catch((error) => {
-      Log.error('Unable to connect to the database: ' + JSON.stringify(error));
-  });
 }

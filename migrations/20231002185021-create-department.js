@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       head: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       depcode: {
         type: Sequelize.STRING

@@ -6,15 +6,17 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.js')[env];
 const db = {}; 
+const db_user = process.env.DB_USER;
+const db_pass = process.env.DB_PASS;
+const db_host = process.env.DB_HOST;
+const db_name = process.env.DB_NAME;
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+let sequelize = new Sequelize(db_name, db_user, db_pass, {
+  host: db_host,
+  dialect: 'mysql'
+});
 
 fs
   .readdirSync(__dirname)
@@ -22,6 +24,7 @@ fs
     return (
       file.indexOf('.') !== 0 &&
       file !== basename &&
+      !file.includes("Response") &&
       file.slice(-3) === '.js' &&
       file.indexOf('.test.js') === -1
     );

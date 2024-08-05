@@ -1,4 +1,4 @@
-const EmployeeService = require("../services");
+const {EmployeeService} = require("../services");
 
 module.exports = class EmployeeController{
     constructor(){

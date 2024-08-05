@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Department.init({
     name: DataTypes.STRING,
     slug: DataTypes.STRING,
-    head: DataTypes.NUMBER,
+    head: DataTypes.INTEGER,
     depcode: DataTypes.STRING,
     doe: DataTypes.STRING,
     state: DataTypes.STRING

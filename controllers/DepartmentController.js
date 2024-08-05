@@ -1,6 +1,7 @@
-const DepartmentService = require("../services");
+const {DepartmentService} = require("../services");
 
 module.exports = class DepartmentController{
+    
     constructor(){
         this.depService = new DepartmentService()
     }

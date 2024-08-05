@@ -1,11 +1,13 @@
-const Employee = require("../models/employee")
-const EmployeeReview = require("../models/employeereviews")
-const EmployeeAgreement = require("../models/employeeagreement")
+var Employee = require("../models/employee")
+var EmployeeReview = require("../models/employeereviews")
+var EmployeeAgreement = require("../models/employeeagreement")
 
 module.exports = class EmployeeService {
 
-    constructor() {
-
+    constructor(EmployeeModel = null, EmployeeReviewModel = null, EmployeeAgreementModel = null) {
+        Employee = EmployeeModel ? EmployeeModel : Employee;
+        EmployeeReview = EmployeeReviewModel ? EmployeeReviewModel : EmployeeReview;
+        EmployeeAgreement = EmployeeAgreementModel ? EmployeeAgreementModel : EmployeeAgreement;
     }
 
     /**

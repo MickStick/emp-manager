@@ -25,13 +25,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       employid: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       depid: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       jobtitle: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       accesslvl: {
         type: Sequelize.STRING
@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       compensate: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

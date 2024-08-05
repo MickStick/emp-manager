@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Payslips', {
+    await queryInterface.createTable('Reports', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,17 +12,11 @@ module.exports = {
       empid: {
         type: Sequelize.INTEGER
       },
-      amount: {
-        type: Sequelize.INTEGER
-      },
-      date: {
+      depcode: {
         type: Sequelize.STRING
       },
-      withheld: {
-        type: Sequelize.INTEGER
-      },
-      account: {
-        type: Sequelize.INTEGER
+      document: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Payslips');
+    await queryInterface.dropTable('Reports');
   }
 };

@@ -19,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
     dob: DataTypes.STRING,
     doe: DataTypes.STRING,
     dot: DataTypes.STRING,
-    employid: DataTypes.NUMBER,
-    depid:DataTypes.NUMBER,
-    jobtitle: DataTypes.NUMBER,
+    employid: DataTypes.INTEGER,
+    depid:DataTypes.INTEGER,
+    jobtitle: DataTypes.INTEGER,
     accesslvl: DataTypes.STRING,
     rate: DataTypes.STRING,
-    compensate: DataTypes.NUMBER
+    compensate: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Employee',
